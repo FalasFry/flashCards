@@ -1,6 +1,11 @@
 import React from 'react';
 
 const MyComponent = () => {
+
+  const directoryPath = 'cards/data';
+  const fileName = 'data.json';
+  const filePath = `${directoryPath}/${fileName}`
+
   const handleSaveData = () => {
     const data = {
       "0":{
@@ -13,16 +18,19 @@ const MyComponent = () => {
           "Answer": "When you have multiple choices of algorithms, you can seperate them into subclasses and let the program choose the best one on runtime",
           "Hint": "What algorithms works best for runtime"
       }
-  };
-    const filePath = 'data.json'; // Path to your JSON file
-
+    };
     // Communicate with the main process to save data
-    window.api.saveDataToFile(data, filePath);
+    window.api.saveDataToFile(data, directoryPath ,filePath);
   };
+  const handleLoadData = () => {
+    let data;
+    window.api.loadDataFromFile(filePath);
+  }
 
   return (
     <div>
       <button onClick={handleSaveData}>Save Data to File</button>
+      <button onClick={handleLoadData}>Load Data from File</button>
     </div>
   );
 };

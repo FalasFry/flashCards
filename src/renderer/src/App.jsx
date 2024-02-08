@@ -35,6 +35,7 @@ function App() {
         clicked={clicked} 
         setClicked={setClicked} />
 
+        <button>Hint</button>
       </div>
 
       <div className="panel">

@@ -5,14 +5,26 @@ const fs = require('fs');
 
 // Custom APIs for renderer
 const api = {
-  saveDataToFile: (data, filePath) => {
-    try {
+  saveDataToFile: (data, directoryPath,filePath) => {
+    if (!fs.existsSync(directoryPath)) {
+      fs.mkdirSync(directoryPath, { recursive: true });
+    }
+    /*try {
       fs.writeFileSync(filePath, JSON.stringify(data));
       console.log('Data saved successfully.');
     } catch (error) {
       console.error('Error saving data:', error);
-    }
+    }*/
   },
+  loadDataFromFile: (filePath) => {
+    try {
+      let data = JSON.parse(fs.readFileSync(filePath));
+      console.log('Data Loaded Successfully');
+      console.log(data);
+    } catch (error) {
+      console.error('Error reading data: ', error);
+    }
+  }
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

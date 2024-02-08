@@ -1,11 +1,11 @@
 {
     "0":{
-        "Question": "What is a template pattern?",
+        "Question": "What is the template method pattern?",
         "Answer": "If you are building a lot of simmilar classes you can create a template for them and then have subclasses to change only the parts needed to change",
         "Hint": "Only chage parts of superclass"
     },
     "1":{
-        "Question": "What is a strategy pattern?",
+        "Question": "What is the strategy pattern?",
         "Answer": "When you have multiple choices of algorithms, you can seperate them into subclasses and let the program choose the best one on runtime",
         "Hint": "What algorithms works best for runtime"
     }
