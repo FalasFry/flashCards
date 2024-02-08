@@ -15,17 +15,45 @@ body {
   background-color: #2f3241;
 }
 
+.navBarContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  min-height: 4vh;
+}
+
+.navBar {
+  min-width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+Button {
+  border-radius: 50px;
+  padding: 1%;
+  margin: 1%;
+  border-style: none;
+  background-color: #2f3241;
+  color: antiquewhite;
+  min-width: 10%;
+}
+
 .container {
   display: flex;
   justify-content: center;
+  margin: 5%;
   background-color: rgb(56, 56, 56);
 }
 
-.flashCard {
+.flashCard, .flashCard-c {
   background-color: transparent;
   width: 50vw;
   height: 30vw;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  cursor: pointer;
 }
 
 /* This container is needed to position the front and back side */
@@ -39,7 +67,7 @@ body {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flashCard:hover .flashCard-inner {
+.flashCard-c .flashCard-inner {
   transform: rotateY(180deg);
 }
 
@@ -64,4 +92,10 @@ body {
   background-color: #bbb;
   color: black;
   transform: rotateY(180deg);
+}
+
+.panel {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
 }
