@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import FlashCard from "./components/FlashCard";
 import testFile from "./assets/test.json"
+import FileOperations from "./components/FileOperations";
 
 function App() {
 
@@ -41,6 +42,8 @@ function App() {
         {cardIndex+1  +" / " +cards.length}
         <button onClick={nextCard}>Next</button>
       </div>
+
+      <FileOperations/>
 
     </div>
   )

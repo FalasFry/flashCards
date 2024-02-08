@@ -39,6 +39,7 @@ Button {
   background-color: #2f3241;
   color: antiquewhite;
   min-width: 10%;
+  cursor: pointer;
 }
 
 .container {
