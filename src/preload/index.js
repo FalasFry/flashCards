@@ -9,18 +9,18 @@ const api = {
     if (!fs.existsSync(directoryPath)) {
       fs.mkdirSync(directoryPath, { recursive: true });
     }
-    /*try {
+    try {
       fs.writeFileSync(filePath, JSON.stringify(data));
       console.log('Data saved successfully.');
     } catch (error) {
       console.error('Error saving data:', error);
-    }*/
+    }
   },
   loadDataFromFile: (filePath) => {
     try {
       let data = JSON.parse(fs.readFileSync(filePath));
       console.log('Data Loaded Successfully');
-      console.log(data);
+      return data;
     } catch (error) {
       console.error('Error reading data: ', error);
     }

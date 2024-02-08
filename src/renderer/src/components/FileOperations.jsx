@@ -1,38 +1,29 @@
-import React from 'react';
+class FileOperations{
+  constructor(){
+    this.directoryPath = 'cards';
+    this.fileName = 'data.json';
+    this.filePath = `${this.directoryPath}/${this.fileName}`
+  }
 
-const MyComponent = () => {
-
-  const directoryPath = 'cards/data';
-  const fileName = 'data.json';
-  const filePath = `${directoryPath}/${fileName}`
-
-  const handleSaveData = () => {
+  handleSaveData(){
     const data = {
       "0":{
-          "Question": "What is a template pattern?",
+          "Question": "What is the template pattern?",
           "Answer": "If you are building a lot of simmilar classes you can create a template for them and then have subclasses to change only the parts needed to change",
           "Hint": "Only chage parts of superclass"
       },
       "1":{
-          "Question": "What is a strategy pattern?",
+          "Question": "What is the strategy pattern?",
           "Answer": "When you have multiple choices of algorithms, you can seperate them into subclasses and let the program choose the best one on runtime",
           "Hint": "What algorithms works best for runtime"
       }
     };
     // Communicate with the main process to save data
-    window.api.saveDataToFile(data, directoryPath ,filePath);
+    window.api.saveDataToFile(data, this.directoryPath ,this.filePath);
   };
-  const handleLoadData = () => {
-    let data;
-    window.api.loadDataFromFile(filePath);
+  handleLoadData() {
+    return window.api.loadDataFromFile(this.filePath);
   }
-
-  return (
-    <div>
-      <button onClick={handleSaveData}>Save Data to File</button>
-      <button onClick={handleLoadData}>Load Data from File</button>
-    </div>
-  );
 };
 
-export default MyComponent;
+export default FileOperations;
