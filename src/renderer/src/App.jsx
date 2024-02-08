@@ -6,12 +6,13 @@ function App() {
 
   const [ cards, setCards ] = useState(Object.entries(testFile));
   const [ cardIndex, setCardIndex ] = useState(0);
+  const [ clicked, setClicked] = useState(false);
 
   function nextCard(){
-    cardIndex < cards.length-1 ? setCardIndex(curr => curr += 1) : setCardIndex(0);
+    !clicked ? cardIndex < cards.length-1 ? setCardIndex(curr => curr += 1) : setCardIndex(0) : '';
   }
   function prevCard(){
-    cardIndex > 0 ? setCardIndex(curr => curr -= 1) : setCardIndex(cards.length-1);
+    !clicked ? cardIndex > 0 ? setCardIndex(curr => curr -= 1) : setCardIndex(cards.length-1) : '';
   }
 
   return (
@@ -26,7 +27,12 @@ function App() {
 
       <div className="container">
 
-        <FlashCard question={cards[cardIndex][1].Question} answer={cards[cardIndex][1].Answer} hint={cards[cardIndex][1].Hint} />
+        <FlashCard 
+        question={cards[cardIndex][1].Question} 
+        answer={cards[cardIndex][1].Answer} 
+        hint={cards[cardIndex][1].Hint}
+        clicked={clicked} 
+        setClicked={setClicked} />
 
       </div>
 

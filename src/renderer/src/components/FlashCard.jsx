@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function FlashCard({ question, answer, hint }){
+function FlashCard({ question, answer, hint, clicked, setClicked }){
   
-  const [clicked, setClicked] = useState(false);
+
 
   function cardPress(){
     setClicked(curr => curr = !curr);
