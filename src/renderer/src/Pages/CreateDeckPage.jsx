@@ -12,9 +12,16 @@ function CreateDeckPage() {
 		let fileOp = new FileOperations();
 		let info = {};
 		let infoArr = fileOp.getDecksInfo();
+
+		// TODO: 
+		// CHECK IF infoARR contains deckData.name
+		// IF yes, alert, new name needed
+		// IF no, continue as usual.
+
 		infoArr.push(deckData.name);
 		info.decks = infoArr;
 		fileOp.handleDecksInfo(info);
+		fileOp.handleSaveData({}, deckData.name);
 
 		navigate("/manage-deck");
 	}
@@ -25,7 +32,6 @@ function CreateDeckPage() {
 			...deckData,
 			[name]: value
 		});
-		console.log(deckData);
 	};
 
 
