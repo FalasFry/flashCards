@@ -117,3 +117,22 @@ Button {
 .displayBtn {
   border-radius: 0;
 }
+
+.cardDisplay {
+  background-color: gray;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10%;
+  border-style:groove;
+  padding: 1%;
+  margin: 2%;
+  min-width: 21%;
+  max-width: 22%;
+}
+
+.cardContainer {
+  display: flex;
+  color:aliceblue;
+}

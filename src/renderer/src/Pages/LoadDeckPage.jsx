@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from 'react-router-dom'
 
 function LoadDeckPage() {
 
-    const { setCards, deckInfo } = useOutletContext();
+    const { setCards, deckInfo, setDeckObj } = useOutletContext();
 
     return (
 	    <div>
@@ -11,7 +11,7 @@ function LoadDeckPage() {
             <h4>Select deck to load</h4>
             <div className="decksGrid">
             {deckInfo.map(name => {return(
-                <DeckDisplay key={name} name={name} setCards={setCards}/>
+                <DeckDisplay key={name} name={name} setCards={setCards} setDeckObj={setDeckObj}/>
             )})}
             </div>
 
@@ -20,21 +20,31 @@ function LoadDeckPage() {
 }
 export default LoadDeckPage;
 
-function DeckDisplay({ name, setCards }){
+function DeckDisplay({ name, setCards, setDeckObj }){
     const navigate = useNavigate();
 
-    function loadSelectedDeck(fileName){
+    function load(fileName){
         let fileOp = new FileOperations();
         let obj = fileOp.handleLoadData(`${fileName}.json`);
-        console.log(obj);
+        setDeckObj(obj);
         setCards(Object.entries(obj));
+    }
+
+    function loadSelectedDeck(fileName){
+        load(fileName);
         navigate("/");
+    }
+
+    function manageSelectedDeck(fileName){
+        load(fileName);
+        navigate("/manage-deck");
     }
 
     return(
         <div className="deckDisplay">
             <h4>{name}</h4>
             <button onClick={() => loadSelectedDeck(name)} className="displayBtn">Load</button>
+            <button onClick={() => manageSelectedDeck(name)} className="displayBtn">Manage Deck</button>
         </div>
     )
 }

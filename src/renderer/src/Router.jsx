@@ -4,6 +4,7 @@ import StudyPage from "./Pages/StudyPage";
 import LoadDeckPage from "./Pages/LoadDeckPage";
 import CreateDeckPage from "./Pages/CreateDeckPage";
 import ManageDeckPage from "./Pages/ManageDeckPage";
+import ManageCardPage from "./Pages/ManageCardPage";
 
 const router = createHashRouter([
 {
@@ -28,7 +29,11 @@ const router = createHashRouter([
   },
   {
     path: "manage-deck",
-    element: <ManageDeckPage/>
+    element: <ManageDeckPage/>,
+  },
+  {
+    path: "manage-card",
+    element: <ManageCardPage/>
   }
 
   ] 
