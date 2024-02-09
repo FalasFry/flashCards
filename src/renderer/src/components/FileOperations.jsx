@@ -23,7 +23,10 @@ class FileOperations{
   };
   handleLoadData() {
     return window.api.loadDataFromFile(this.filePath);
-  }
+  };
+  countFiles(){
+    return window.api.countTotalDecks(this.directoryPath)
+  };
 };
 
 export default FileOperations;

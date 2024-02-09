@@ -24,6 +24,16 @@ const api = {
     } catch (error) {
       console.error('Error reading data: ', error);
     }
+  },
+  countTotalDecks: (directoryPath) => {
+    try {
+      const files = fs.readdirSync(directoryPath);
+      const jsonFiles = files.filter(file => path.extname(file).toLowerCase() === '.json');
+      return jsonFiles.length;
+    } catch (error) {
+      console.error('Error counting JSON files:', error);
+      return 0;
+    }
   }
 }
 
