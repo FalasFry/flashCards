@@ -7,10 +7,9 @@ function StudyPage() {
 
 	const navigate = useNavigate();
 	const { cards, decks, setDecks, setCads } = useOutletContext();
-	//const [ cards, setCards ] = useState([]);
+	
 	const [ cardIndex, setCardIndex ] = useState(0);
 	const [ clicked, setClicked] = useState(false);
-	//const [ decks, setDecks ] = useState([]);
 
 	function nextCard(){
 		!clicked ? cardIndex < cards.length-1 ? setCardIndex(curr => curr += 1) : setCardIndex(0) : '';

@@ -2,7 +2,6 @@ import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 const fs = require('fs');
-const path = require('path');
 
 // Custom APIs for renderer
 const api = {
@@ -26,9 +25,13 @@ const api = {
       console.error('Error reading data: ', error);
     }
   },
-  getDecksInfo: () => {
+  getDecksInfo: (directoryPath) => {
+    if (!fs.existsSync(directoryPath)) {
+      fs.mkdirSync(directoryPath, { recursive: true });
+      fs.writeFileSync(`${directoryPath}/decksInfo.json`, '{"decks":[]}', 'utf-8');
+    }
     try {
-      let data = JSON.parse(fs.readFileSync("cards/decksInfo.json"));
+      let data = JSON.parse(fs.readFileSync(`${directoryPath}/decksInfo.json`));
       console.log('Decks Info Loaded Successfully');
       return data;
     } catch (error) {

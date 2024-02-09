@@ -1,6 +1,6 @@
 class FileOperations{
   constructor(){
-    this.directoryPath = 'cards';
+    this.directoryPath = 'card';
   }
 
   handleSaveData(deckData, fileName){
@@ -25,7 +25,7 @@ class FileOperations{
     return window.api.loadDataFromFile(filePath);
   };
   getDecksInfo(){
-    return window.api.getDecksInfo().decks;
+    return window.api.getDecksInfo(this.directoryPath).decks;
   };
 };
 
