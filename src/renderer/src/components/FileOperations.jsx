@@ -1,11 +1,10 @@
 class FileOperations{
   constructor(){
     this.directoryPath = 'cards';
-    this.fileName = 'data.json';
-    this.filePath = `${this.directoryPath}/${this.fileName}`
   }
 
-  handleSaveData(){
+  handleSaveData(deckData, fileName){
+    const filePath = `${this.directoryPath}/${fileName}`
     const data = {
       "0":{
           "Question": "What is the template pattern?",
@@ -19,13 +18,14 @@ class FileOperations{
       }
     };
     // Communicate with the main process to save data
-    window.api.saveDataToFile(data, this.directoryPath ,this.filePath);
+    window.api.saveDataToFile(data, this.directoryPath ,filePath);
   };
-  handleLoadData() {
-    return window.api.loadDataFromFile(this.filePath);
+  handleLoadData(fileName) {
+    const filePath = `${this.directoryPath}/${fileName}`
+    return window.api.loadDataFromFile(filePath);
   };
-  countFiles(){
-    return window.api.countTotalDecks(this.directoryPath)
+  getDecksInfo(){
+    return window.api.getDecksInfo().decks;
   };
 };
 

@@ -2,6 +2,7 @@ import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 const fs = require('fs');
+const path = require('path');
 
 // Custom APIs for renderer
 const api = {
@@ -25,14 +26,13 @@ const api = {
       console.error('Error reading data: ', error);
     }
   },
-  countTotalDecks: (directoryPath) => {
+  getDecksInfo: () => {
     try {
-      const files = fs.readdirSync(directoryPath);
-      const jsonFiles = files.filter(file => path.extname(file).toLowerCase() === '.json');
-      return jsonFiles.length;
+      let data = JSON.parse(fs.readFileSync("cards/decksInfo.json"));
+      console.log('Decks Info Loaded Successfully');
+      return data;
     } catch (error) {
-      console.error('Error counting JSON files:', error);
-      return 0;
+      console.error('Error reading data: ', error);
     }
   }
 }
