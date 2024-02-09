@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import FlashCard from "../components/FlashCard"
 import FileOperations from "../components/FileOperations";
 import { useNavigate, useOutletContext } from 'react-router-dom'
 
@@ -10,6 +8,7 @@ function LoadDeckPage() {
     return (
 	    <div>
             <h1>Decks</h1>
+            <h4>Select deck to load</h4>
             <div className="decksGrid">
             {deckInfo.map(name => {return(
                 <DeckDisplay key={name} name={name} setCards={setCards}/>

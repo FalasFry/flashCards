@@ -27,6 +27,9 @@ class FileOperations{
   getDecksInfo(){
     return window.api.getDecksInfo(this.directoryPath).decks;
   };
+  handleDecksInfo(deckInfo){
+    window.api.handleDecksInfo(this.directoryPath, deckInfo);
+  };
 };
 
 export default FileOperations;

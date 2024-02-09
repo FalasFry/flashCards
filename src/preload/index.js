@@ -37,6 +37,14 @@ const api = {
     } catch (error) {
       console.error('Error reading data: ', error);
     }
+  },
+  handleDecksInfo: (directoryPath, deckInfo) => {
+    try {
+      fs.writeFileSync(`${directoryPath}/decksInfo.json`, JSON.stringify(deckInfo));
+      console.log('Info Data saved successfully.');
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
   }
 }
 

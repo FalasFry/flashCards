@@ -1,38 +1,46 @@
-import { useEffect, useState } from "react"
-import FlashCard from "../components/FlashCard"
+import { useState } from "react"
 import FileOperations from "../components/FileOperations";
-import { useOutletContext } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function CreateDeckPage() {
 
-  //const [ cards, setCards ] = useState([]);
-  const [ cardIndex, setCardIndex ] = useState(0);
-  const [ clicked, setClicked] = useState(false);
-  //const [ decks, setDecks ] = useState([]);
+	const [ deckData, setDeckData ] = useState({name: ''});
+	const navigate = useNavigate();
 
-  function viewDecks(e){
-	e.preventDefault();
-	let fileOp = new FileOperations();
-	let arr = [];
-	for(let i = 0; i < fileOp.countFiles(); i++){
-	  arr.push(i);
+	function submitDeck(e){
+		e.preventDefault();
+		let fileOp = new FileOperations();
+		let info = {};
+		let infoArr = fileOp.getDecksInfo();
+		infoArr.push(deckData.name);
+		info.decks = infoArr;
+		fileOp.handleDecksInfo(info);
+
+		navigate("/manage-deck");
 	}
-	//setDecks(arr);
-  }
 
-  return (
-	<div>
+	function handleChange(e){
+		const { name, value } = e.target;
+		setDeckData({
+			...deckData,
+			[name]: value
+		});
+		console.log(deckData);
+	};
 
-	  <div onSubmit={viewDecks} style={{backgroundColor: "lightblue", display:"flex"}}>
-		<form>
-		  <label>Name</label>
-		  <input type="text" />
-		  <button type="submit">Submit</button>
-		</form>
-	  </div>
-      
-	</div>
-  )
+
+	return (
+		<div>
+			<h1>Create New Deck</h1>
+			<div onSubmit={submitDeck} style={{backgroundColor: "lightblue", display:"flex"}}>
+				<form>
+					<input name="name" onChange={handleChange} type="text"/>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		
+		</div>
+	)
 }
 export default CreateDeckPage;
 

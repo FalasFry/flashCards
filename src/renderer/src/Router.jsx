@@ -3,6 +3,7 @@ import App from './App';
 import StudyPage from "./Pages/StudyPage";
 import LoadDeckPage from "./Pages/LoadDeckPage";
 import CreateDeckPage from "./Pages/CreateDeckPage";
+import ManageDeckPage from "./Pages/ManageDeckPage";
 
 const router = createHashRouter([
 {
@@ -24,6 +25,10 @@ const router = createHashRouter([
   {
     path: "create-deck",
     element: <CreateDeckPage/>
+  },
+  {
+    path: "manage-deck",
+    element: <ManageDeckPage/>
   }
 
   ] 
