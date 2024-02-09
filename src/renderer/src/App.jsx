@@ -8,10 +8,11 @@ function App() {
 
 	const [ cards, setCards ] = useState([]);
 	const [ decks, setDecks ] = useState(0);
+  const [ deckInfo, setDeckInfo ] = useState([]);
 
   return (
     <div>
-      <Outlet context={{ decks, setDecks, cards, setCards }}/>
+      <Outlet context={{ decks, setDecks, cards, setCards, deckInfo, setDeckInfo }}/>
     </div>
   )
 }

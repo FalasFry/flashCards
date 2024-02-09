@@ -6,10 +6,12 @@ import { useNavigate, useOutletContext } from 'react-router-dom'
 function StudyPage() {
 
 	const navigate = useNavigate();
-	const { cards, decks, setDecks, setCads } = useOutletContext();
-	
+	const { cards, setDeckInfo } = useOutletContext();
+
+
 	const [ cardIndex, setCardIndex ] = useState(0);
 	const [ clicked, setClicked] = useState(false);
+	
 
 	function nextCard(){
 		!clicked ? cardIndex < cards.length-1 ? setCardIndex(curr => curr += 1) : setCardIndex(0) : '';
@@ -19,7 +21,14 @@ function StudyPage() {
 	}
 
 	function loadDeck(){
-		navigate("/load-deck");
+		const fileOp = new FileOperations();
+        const decks = fileOp.getDecksInfo();
+        if(decks.length <= 0){
+			 alert("No Decks Available");
+		} else {
+			setDeckInfo(decks);
+			navigate("/load-deck");
+		}
 	}
 
 	function createDeck(){

@@ -1,6 +1,6 @@
 class FileOperations{
   constructor(){
-    this.directoryPath = 'card';
+    this.directoryPath = 'cards';
   }
 
   handleSaveData(deckData, fileName){

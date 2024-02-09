@@ -5,21 +5,14 @@ import { useNavigate, useOutletContext } from 'react-router-dom'
 
 function LoadDeckPage() {
 
-    const { cards, decks, setDecks, setCards } = useOutletContext();
-    const [ deckInfo, setDeckInfo ] = useState([]);
-
-
-    useEffect(() => {
-        const fileOp = new FileOperations();
-        setDeckInfo(fileOp.getDecksInfo());
-    },[])
+    const { setCards, deckInfo } = useOutletContext();
 
     return (
 	    <div>
             <h1>Decks</h1>
             <div className="decksGrid">
             {deckInfo.map(name => {return(
-                <DeckDisplay name={name} setCards={setCards}/>
+                <DeckDisplay key={name} name={name} setCards={setCards}/>
             )})}
             </div>
 
