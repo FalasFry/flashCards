@@ -6,7 +6,7 @@ function App() {
 	const [ cards, setCards ] = useState([]);
 	const [ decks, setDecks ] = useState(0);
   const [ deckInfo, setDeckInfo ] = useState([]);
-  const [cardData, setCardData ] = useState({});
+  const [ cardData, setCardData ] = useState({});
   const [ deckObj, setDeckObj ] = useState({});
 
   return (

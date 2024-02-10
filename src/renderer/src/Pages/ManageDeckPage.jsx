@@ -4,6 +4,7 @@ import { useNavigate, useOutletContext } from 'react-router-dom'
 function ManageDeckPage() {
 	
     const { cards, cardData, setCardData, deckObj, setDeckObj } = useOutletContext();
+    const navigate = useNavigate();
 
     const [ deck, setDeck ] = useState({
         0:{
@@ -15,11 +16,13 @@ function ManageDeckPage() {
 
 
     function addCard(){
-        const newKey = String(Object.keys(deck).length)
-        setDeck({
-            ...deck,
-            newKey: cardData
-        })
+        setCardData({});
+        navigate("/manage-card");
+        // const newKey = String(Object.keys(deck).length)
+        // setDeck({
+        //    ...deck,
+        //    newKey: cardData
+        //})
     }
 
     return (
@@ -27,7 +30,7 @@ function ManageDeckPage() {
         
             <h1>Manage Deck</h1>
 
-            <button>Create Card</button>
+            <button onClick={addCard}>Create Card</button>
 
             <button>Delete Deck</button>
 

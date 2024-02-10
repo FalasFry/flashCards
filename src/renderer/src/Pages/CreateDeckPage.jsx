@@ -1,17 +1,22 @@
 import { useState } from "react"
 import FileOperations from "../components/FileOperations";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 function CreateDeckPage() {
 
 	const [ deckData, setDeckData ] = useState({name: ''});
+
+	const { setCards, setDeckObj } = useOutletContext();
+
 	const navigate = useNavigate();
+
 
 	function submitDeck(e){
 		e.preventDefault();
 		let fileOp = new FileOperations();
 		let info = {};
 		let infoArr = fileOp.getDecksInfo();
+
 
 		// TODO: 
 		// CHECK IF infoARR contains deckData.name
@@ -22,6 +27,10 @@ function CreateDeckPage() {
 		info.decks = infoArr;
 		fileOp.handleDecksInfo(info);
 		fileOp.handleSaveData({}, deckData.name);
+
+		let obj = fileOp.handleLoadData(`${deckData.name}.json`);
+		setDeckObj(obj);
+		setCards(Object.entries(obj));
 
 		navigate("/manage-deck");
 	}
