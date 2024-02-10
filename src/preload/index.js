@@ -5,7 +5,7 @@ const fs = require('fs');
 
 // Custom APIs for renderer
 const api = {
-  saveDataToFile: (data, directoryPath,filePath) => {
+  saveDataToFile: (data, directoryPath, filePath) => {
     if (!fs.existsSync(directoryPath)) {
       fs.mkdirSync(directoryPath, { recursive: true });
     }

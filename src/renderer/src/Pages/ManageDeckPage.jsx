@@ -6,23 +6,11 @@ function ManageDeckPage() {
     const { cards, cardData, setCardData, deckObj, setDeckObj } = useOutletContext();
     const navigate = useNavigate();
 
-    const [ deck, setDeck ] = useState({
-        0:{
-            "Question": '',
-            "Answer": '',
-            "Hint": ''
-        },
-    });
 
 
     function addCard(){
         setCardData({});
         navigate("/manage-card");
-        // const newKey = String(Object.keys(deck).length)
-        // setDeck({
-        //    ...deck,
-        //    newKey: cardData
-        //})
     }
 
     return (

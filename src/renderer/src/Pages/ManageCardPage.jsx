@@ -4,17 +4,26 @@ import FileOperations from "../components/FileOperations";
 
 function ManageCardPage() {
 
-    const { cardData, setCardData, deckObj, setDeckObj } = useOutletContext();
-	
+    const { cardData, setCardData, deckObj, setDeckObj, selectedDeck } = useOutletContext();
+    const navigate = useNavigate();
 
     function handleSubmit(e){
         e.preventDefault();
+        if(cardData.Question === '' || cardData.Answer === '' || cardData.Hint === '') return;
+
 
         let newKey = String(Object.keys(deckObj).length);
         setDeckObj({
             ...deckObj,
             [newKey]: cardData
-        })
+        });
+        let fileOp = new FileOperations();
+
+        console.log(selectedDeck);
+
+        fileOp.handleSaveData(deckObj, selectedDeck);
+
+        navigate("/manage-deck")
     }
 
     function handleChange(e){

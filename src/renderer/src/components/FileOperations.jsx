@@ -18,7 +18,7 @@ class FileOperations{
       }
     };
     // Communicate with the main process to save data
-    window.api.saveDataToFile(data, this.directoryPath ,filePath);
+    window.api.saveDataToFile(deckData, this.directoryPath ,filePath);
   };
   handleLoadData(fileName) {
     const filePath = `${this.directoryPath}/${fileName}`

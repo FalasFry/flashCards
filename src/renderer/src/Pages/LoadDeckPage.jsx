@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from 'react-router-dom'
 
 function LoadDeckPage() {
 
-    const { setCards, deckInfo, setDeckObj } = useOutletContext();
+    const { setCards, deckInfo, setDeckObj, setSelectedDeck  } = useOutletContext();
 
     return (
 	    <div>
@@ -26,6 +26,7 @@ function DeckDisplay({ name, setCards, setDeckObj }){
     function load(fileName){
         let fileOp = new FileOperations();
         let obj = fileOp.handleLoadData(`${fileName}.json`);
+        setSelectedDeck(fileName);
         setDeckObj(obj);
         setCards(Object.entries(obj));
     }
