@@ -19,8 +19,7 @@ function ManageCardPage() {
         });
         let fileOp = new FileOperations();
 
-        console.log(selectedDeck);
-
+        // setDeck === ''
         fileOp.handleSaveData(deckObj, selectedDeck);
 
         navigate("/manage-deck")

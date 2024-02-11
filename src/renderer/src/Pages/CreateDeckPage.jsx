@@ -6,7 +6,7 @@ function CreateDeckPage() {
 
 	const [ deckData, setDeckData ] = useState({name: ''});
 
-	const { setCards, setDeckObj } = useOutletContext();
+	const { setCards, setDeckObj, setSelectedDeck } = useOutletContext();
 
 	const navigate = useNavigate();
 
@@ -31,6 +31,7 @@ function CreateDeckPage() {
 		let obj = fileOp.handleLoadData(`${deckData.name}.json`);
 		setDeckObj(obj);
 		setCards(Object.entries(obj));
+		setSelectedDeck(deckData.name);
 
 		navigate("/manage-deck");
 	}
