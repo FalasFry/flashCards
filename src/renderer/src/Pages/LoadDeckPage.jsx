@@ -11,7 +11,7 @@ function LoadDeckPage() {
             <h4>Select deck to load</h4>
             <div className="decksGrid">
             {deckInfo.map(name => {return(
-                <DeckDisplay key={name} name={name} setCards={setCards} setDeckObj={setDeckObj}/>
+                <DeckDisplay key={name} name={name} setCards={setCards} setDeckObj={setDeckObj} setSelectedDeck={setSelectedDeck}/>
             )})}
             </div>
 
@@ -20,7 +20,7 @@ function LoadDeckPage() {
 }
 export default LoadDeckPage;
 
-function DeckDisplay({ name, setCards, setDeckObj }){
+function DeckDisplay({ name, setCards, setDeckObj, setSelectedDeck }){
     const navigate = useNavigate();
 
     function load(fileName){

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import FileOperations from "../components/FileOperations";
 
@@ -9,6 +9,7 @@ function ManageCardPage() {
 
     function handleSubmit(e){
         e.preventDefault();
+        let fileOp = new FileOperations();
         if(cardData.Question === '' || cardData.Answer === '' || cardData.Hint === '') return;
 
 
@@ -16,11 +17,9 @@ function ManageCardPage() {
         setDeckObj({
             ...deckObj,
             [newKey]: cardData
-        });
-        let fileOp = new FileOperations();
-
-        // setDeck === ''
-        fileOp.handleSaveData(deckObj, selectedDeck);
+        }, 
+        
+        fileOp.handleSaveData(deckObj, selectedDeck));
 
         navigate("/manage-deck")
     }
