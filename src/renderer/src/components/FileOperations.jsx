@@ -5,7 +5,6 @@ class FileOperations{
 
   handleSaveData(deckData, fileName){
     const filePath = `${this.directoryPath}/${fileName}.json`;
-    console.log(deckData);
     const data = {
       "0":{
           "Question": "What is the template pattern?",

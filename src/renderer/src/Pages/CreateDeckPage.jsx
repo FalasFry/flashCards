@@ -17,11 +17,15 @@ function CreateDeckPage() {
 		let info = {};
 		let infoArr = fileOp.getDecksInfo();
 
+		if(deckData.name === "decksInfo"){
+			alert("Cant use that name");
+			return;
+		}
 
-		// TODO: 
-		// CHECK IF infoARR contains deckData.name
-		// IF yes, alert, new name needed
-		// IF no, continue as usual.
+		if(infoArr.includes(deckData.name)){
+			alert("Deck with that name already exists");
+			return;
+		}
 
 		infoArr.push(deckData.name);
 		info.decks = infoArr;
