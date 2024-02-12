@@ -17,7 +17,7 @@ function CreateDeckPage() {
 		let info = {};
 		let infoArr = fileOp.getDecksInfo();
 
-		if(deckData.name === "decksInfo"){
+		if(deckData.name === "decksInfo" || deckData.name === ""){
 			alert("Cant use that name");
 			return;
 		}
