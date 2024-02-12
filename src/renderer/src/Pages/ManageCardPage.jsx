@@ -4,24 +4,33 @@ import FileOperations from "../components/FileOperations";
 
 function ManageCardPage() {
 
-    const { cardData, setCardData, deckObj, setDeckObj, selectedDeck } = useOutletContext();
+    const { cardData, setCardData, deckObj, setDeckObj, selectedDeck, setCards } = useOutletContext();
     const navigate = useNavigate();
+    const fileOp = new FileOperations();
+
+    const [ submitted, setSubmitted ] = useState(false);
+
+    useEffect(() => {
+        
+        if(submitted){
+            fileOp.handleSaveData(deckObj, selectedDeck);
+            setCards(Object.entries(deckObj));
+            navigate("/manage-deck");
+        }
+    },[submitted])
 
     function handleSubmit(e){
         e.preventDefault();
-        let fileOp = new FileOperations();
+        
         if(cardData.Question === '' || cardData.Answer === '' || cardData.Hint === '') return;
-
 
         let newKey = String(Object.keys(deckObj).length);
         setDeckObj({
             ...deckObj,
             [newKey]: cardData
-        }, 
-        
-        fileOp.handleSaveData(deckObj, selectedDeck));
+        });
 
-        navigate("/manage-deck")
+        setSubmitted(true);
     }
 
     function handleChange(e){

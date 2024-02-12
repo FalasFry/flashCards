@@ -23,10 +23,10 @@ function ManageDeckPage() {
             <button>Delete Deck</button>
 
             <div className="cardContainer">
-                {cards.map(card => {return(
-                    <>
+                {cards.map((card, cardIndex) => {return(
+                    <div key={cardIndex}>
                         <CardDisplay card={card} setCardData={setCardData} cardData={cardData}/>
-                    </>
+                    </div>
                 )})}
             </div>
 
