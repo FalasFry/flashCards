@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from 'react-router-dom'
 
 function ManageDeckPage() {
 	
-    const { cards, cardData, setCardData, deckObj, setDeckObj } = useOutletContext();
+    const { cards, setCardData } = useOutletContext();
     const navigate = useNavigate();
 
 
@@ -25,7 +25,7 @@ function ManageDeckPage() {
             <div className="cardContainer">
                 {cards.map((card, cardIndex) => {return(
                     <div key={cardIndex}>
-                        <CardDisplay card={card} setCardData={setCardData} cardData={cardData}/>
+                        <CardDisplay card={card} setCardData={setCardData}/>
                     </div>
                 )})}
             </div>
@@ -36,7 +36,7 @@ function ManageDeckPage() {
 export default ManageDeckPage;
 
 
-function CardDisplay({ card, setCardData, cardData }){
+function CardDisplay({ card, setCardData }){
     const navigate = useNavigate();
 
     function editSelectedCard(){
