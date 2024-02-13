@@ -21,11 +21,11 @@ class FileOperations{
     window.api.saveDataToFile(deckData, this.directoryPath ,filePath);
   };
   handleLoadData(fileName) {
-    const filePath = `${this.directoryPath}/${fileName}`
+    const filePath = `${this.directoryPath}/${fileName}.json`
     return window.api.loadDataFromFile(filePath);
   };
   deleteDeckFile(fileName){
-    const filePath = `${this.directoryPath}/${fileName}`
+    const filePath = `${this.directoryPath}/${fileName}.json`
     window.api.deleteDeckFile(filePath);
   };
   delteCardFromDeck(){

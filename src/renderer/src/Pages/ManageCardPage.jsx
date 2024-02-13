@@ -19,12 +19,22 @@ function ManageCardPage() {
         }
     },[submitted])
 
+    function findKeyInRange(end){
+        for (let key = 0; key <= end; key++) {
+          if (!deckObj.hasOwnProperty(String(key))) {
+            return key;
+          }
+        }
+        return String(Object.keys(deckObj).length);
+      };
+
     function handleSubmit(e){
         e.preventDefault();
         
         if(cardData.Question === '' || cardData.Answer === '' || cardData.Hint === '') return;
 
-        let newKey = String(Object.keys(deckObj).length);
+        let newKey = findKeyInRange(Object.keys(deckObj).length);
+
         setDeckObj({
             ...deckObj,
             [newKey]: cardData

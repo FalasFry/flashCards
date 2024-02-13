@@ -26,7 +26,7 @@ const api = {
     }
   },
   deleteDeckFile: (filePath) => {
-    fs.unlinkSync(`${filePath}.json`);
+    fs.unlinkSync(filePath);
   },
   delteCardFromDeck: () => {
 

@@ -25,7 +25,7 @@ function DeckDisplay({ name, setCards, setDeckObj, setSelectedDeck }){
 
     function load(fileName){
         let fileOp = new FileOperations();
-        let obj = fileOp.handleLoadData(`${fileName}.json`);
+        let obj = fileOp.handleLoadData(`${fileName}`);
         setSelectedDeck(fileName);
         setDeckObj(obj);
         setCards(Object.entries(obj));
