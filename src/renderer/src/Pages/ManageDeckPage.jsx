@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from 'react-router-dom'
+import FileOperations from "../components/FileOperations";
 
 function ManageDeckPage() {
 	
-    const { cards, setCardData } = useOutletContext();
+    const { cards, setCardData, selectedDeck, setDeckInfo } = useOutletContext();
     const navigate = useNavigate();
 
 
@@ -11,6 +12,28 @@ function ManageDeckPage() {
     function addCard(){
         setCardData({});
         navigate("/manage-card");
+    }
+    function deleteDeck(){
+        const fileOp = new FileOperations();
+		let info = {};
+		let infoArr = fileOp.getDecksInfo();
+
+		infoArr = infoArr.filter(element => element !== selectedDeck);
+		info.decks = infoArr;
+		fileOp.handleDecksInfo(info);
+        fileOp.deleteDeckFile(selectedDeck);
+        setDeckInfo(infoArr);
+
+		//setDeckObj({});
+		//setCards([]);
+		//setSelectedDeck('');
+
+        if(info.decks.length > 0) navigate("/load-deck");
+        else navigate("/")
+
+
+
+
     }
 
     return (
@@ -20,7 +43,7 @@ function ManageDeckPage() {
 
             <button onClick={addCard}>Create Card</button>
 
-            <button>Delete Deck</button>
+            <button onClick={deleteDeck}>Delete Deck</button>
 
             <div className="cardContainer">
                 {cards.map((card, cardIndex) => {return(

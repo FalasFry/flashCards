@@ -25,8 +25,8 @@ const api = {
       console.error('Error reading data: ', error);
     }
   },
-  deleteDeckFile: () => {
-
+  deleteDeckFile: (filePath) => {
+    fs.unlinkSync(`${filePath}.json`);
   },
   delteCardFromDeck: () => {
 

@@ -24,8 +24,9 @@ class FileOperations{
     const filePath = `${this.directoryPath}/${fileName}`
     return window.api.loadDataFromFile(filePath);
   };
-  deleteDeckFile(){
-
+  deleteDeckFile(fileName){
+    const filePath = `${this.directoryPath}/${fileName}`
+    window.api.deleteDeckFile(filePath);
   };
   delteCardFromDeck(){
 
