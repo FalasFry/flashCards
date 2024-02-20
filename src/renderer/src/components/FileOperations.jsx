@@ -28,9 +28,6 @@ class FileOperations{
     const filePath = `${this.directoryPath}/${fileName}.json`
     window.api.deleteDeckFile(filePath);
   };
-  delteCardFromDeck(){
-
-  };
   getDecksInfo(){
     return window.api.getDecksInfo(this.directoryPath).decks;
   };

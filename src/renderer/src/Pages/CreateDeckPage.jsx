@@ -32,7 +32,7 @@ function CreateDeckPage() {
 		fileOp.handleDecksInfo(info);
 		fileOp.handleSaveData({}, deckData.name);
 
-		let obj = fileOp.handleLoadData(`${deckData.name}.json`);
+		let obj = fileOp.handleLoadData(deckData.name);
 		setDeckObj(obj);
 		setCards(Object.entries(obj));
 		setSelectedDeck(deckData.name);
@@ -51,6 +51,13 @@ function CreateDeckPage() {
 
 	return (
 		<div>
+			<div className="navBarContainer">
+                <div className="navBar">
+                <button>Load Deck of Cards</button>
+                <button>Create New Deck</button>
+                </div>
+            </div>
+			
 			<h1>Create New Deck</h1>
 			<div onSubmit={submitDeck} style={{backgroundColor: "lightblue", display:"flex"}}>
 				<form>

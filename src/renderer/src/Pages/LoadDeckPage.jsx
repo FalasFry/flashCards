@@ -7,6 +7,13 @@ function LoadDeckPage() {
 
     return (
 	    <div>
+            <div className="navBarContainer">
+                <div className="navBar">
+                <button>Load Deck of Cards</button>
+                <button>Create New Deck</button>
+                </div>
+            </div>
+
             <h1>Decks</h1>
             <h4>Select deck to load</h4>
             <div className="decksGrid">

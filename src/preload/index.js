@@ -28,9 +28,6 @@ const api = {
   deleteDeckFile: (filePath) => {
     fs.unlinkSync(filePath);
   },
-  delteCardFromDeck: () => {
-
-  },
   getDecksInfo: (directoryPath) => {
     if (!fs.existsSync(directoryPath)) {
       fs.mkdirSync(directoryPath, { recursive: true });

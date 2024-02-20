@@ -53,6 +53,13 @@ function ManageCardPage() {
 
     return (
 		<div>
+            <div className="navBarContainer">
+                <div className="navBar">
+                <button>Load Deck of Cards</button>
+                <button>Create New Deck</button>
+                </div>
+            </div>
+
             <form onSubmit={handleSubmit}>
                 <input type="text" name="Question" defaultValue={cardData.Question} onChange={handleChange}/>
                 <input type="text" name="Answer" defaultValue={cardData.Answer} onChange={handleChange}/>

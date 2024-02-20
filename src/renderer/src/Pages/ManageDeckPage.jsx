@@ -33,7 +33,13 @@ function ManageDeckPage() {
 
     return (
 		<div>
-        
+            <div className="navBarContainer">
+                <div className="navBar">
+                <button>Load Deck of Cards</button>
+                <button>Create New Deck</button>
+                </div>
+            </div>
+            
             <h1>Manage Deck</h1>
 
             <button onClick={addCard}>Create Card</button>
