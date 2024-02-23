@@ -52,7 +52,7 @@ function DeckDisplay({ name, setCards, setDeckObj, setSelectedDeck }){
     return(
         <div className="deckDisplay">
             <h4>{name}</h4>
-            <button onClick={() => loadSelectedDeck(name)} className="displayBtn">Load</button>
+            <button onClick={() => loadSelectedDeck(name)} className="displayBtn">Load Deck</button>
             <button onClick={() => manageSelectedDeck(name)} className="displayBtn">Manage Deck</button>
         </div>
     )

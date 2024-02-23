@@ -1,3 +1,16 @@
+.cardContainer {
+    display: flex;
+    color:aliceblue;
+}
+
+.cardDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .cardDisplay {
     background-color: gray;
     justify-content: center;
@@ -5,14 +18,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 10%;
-    border-style:groove;
+    border-style:hidden;
     padding: 1%;
     margin: 2%;
-    min-width: 21%;
-    max-width: 22%;
-}
-  
-.cardContainer {
-display: flex;
-color:aliceblue;
+    min-width: 15vw;
 }

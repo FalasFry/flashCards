@@ -49,7 +49,7 @@ function ManageDeckPage() {
 
             <div className="cardContainer">
                 {cards.map((card, cardIndex) => {return(
-                    <div key={cardIndex}>
+                    <div className="cardDiv" key={cardIndex}>
                         <CardDisplay card={card} setCards={setCards} setCardData={setCardData} deckObj={deckObj} setDeckObj={setDeckObj} selectedDeck={selectedDeck} />
                     </div>
                 )})}
