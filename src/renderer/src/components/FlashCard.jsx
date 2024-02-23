@@ -1,4 +1,4 @@
-import { useState } from "react";
+import '../assets/Components/FlashCard.css'
 
 function FlashCard({ question, answer, hint, clicked, setClicked }){
   

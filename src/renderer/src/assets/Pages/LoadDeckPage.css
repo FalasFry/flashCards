@@ -1,0 +1,16 @@
+.decksGrid {
+    display: grid;
+}
+  
+.deckDisplay{
+    background-color: gray;
+    color: beige;
+    margin: 2%;
+    max-width: 10%;
+    text-align: center;
+    justify-content: center;
+}
+
+.displayBtn {
+    border-radius: 0;
+}

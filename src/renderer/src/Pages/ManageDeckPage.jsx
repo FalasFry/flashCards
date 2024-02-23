@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import FileOperations from "../components/FileOperations";
+import '../assets/Pages/ManageDeckPage.css'
 
 function ManageDeckPage() {
 	

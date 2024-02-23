@@ -1,4 +1,5 @@
 import FileOperations from "../components/FileOperations";
+import '../assets/Pages/LoadDeckPage.css'
 import { useNavigate, useOutletContext } from 'react-router-dom'
 
 function LoadDeckPage() {

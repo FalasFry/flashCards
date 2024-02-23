@@ -1,0 +1,11 @@
+.flashCardContainer {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    background-color: rgb(56, 56, 56);
+}
+.panel {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+}

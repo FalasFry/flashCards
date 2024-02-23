@@ -1,0 +1,45 @@
+.flashCard, .flashCard-c {
+  background-color: transparent;
+  width: 50vw;
+  height: 30vw;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  cursor: pointer;
+}
+
+/* This container is needed to position the front and back side */
+.flashCard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flashCard-c .flashCard-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.frontCard, .backCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+/* Style the front side (fallback if image is missing) */
+.frontCard {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.backCard {
+  background-color: #bbb;
+  color: black;
+  transform: rotateY(180deg);
+}

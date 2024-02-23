@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import FileOperations from "../components/FileOperations";
+import '../assets/Pages/ManageCardPage.css'
 
 function ManageCardPage() {
 

@@ -2,17 +2,16 @@ import { useEffect, useState } from "react"
 import FlashCard from "../components/FlashCard"
 import FileOperations from "../components/FileOperations";
 import { useNavigate, useOutletContext } from 'react-router-dom'
+import '../assets/Pages/StudyPage.css'
 
 function StudyPage() {
 
 	const navigate = useNavigate();
 	const { cards, setDeckInfo } = useOutletContext();
 
-
 	const [ cardIndex, setCardIndex ] = useState(0);
 	const [ clicked, setClicked] = useState(false);
 	
-
 	function nextCard(){
 		!clicked ? cardIndex < cards.length-1 ? setCardIndex(curr => curr += 1) : setCardIndex(0) : '';
 	}
