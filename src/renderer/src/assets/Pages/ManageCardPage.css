@@ -1,0 +1,33 @@
+.createCardFormContainer {
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #b9b9b9;
+    padding: 20px;
+    width: 50%;
+}
+
+.createCardForm {
+    display: contents;
+}
+
+.inputText {
+    width: 100%;
+    padding: 12px 5px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submitCardBtn {
+    width: 90%;
+    align-self: center;
+}
+

@@ -6,6 +6,14 @@
   cursor: pointer;
 }
 
+.flashCard-s, .flashCard-s-c {
+  background-color: transparent;
+  width: 37vw;
+  height: 20vw;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
 /* This container is needed to position the front and back side */
 .flashCard-inner {
   position: relative;

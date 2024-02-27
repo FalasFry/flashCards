@@ -1,14 +1,13 @@
 .cardContainer {
     display: flex;
     color:aliceblue;
+    flex-wrap: wrap;
 }
 
 .cardDiv {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
 }
 
 .cardDisplay {
@@ -21,5 +20,6 @@
     border-style:hidden;
     padding: 1%;
     margin: 2%;
-    min-width: 15vw;
+    width: 20vw;
+    height: 14vw;
 }

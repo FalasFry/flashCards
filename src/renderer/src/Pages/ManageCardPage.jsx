@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import FileOperations from "../components/FileOperations";
+import FlashCard from "../components/FlashCard";
 import '../assets/Pages/ManageCardPage.css'
 
 function ManageCardPage() {
@@ -10,6 +11,8 @@ function ManageCardPage() {
     const fileOp = new FileOperations();
 
     const [ submitted, setSubmitted ] = useState(false);
+
+    const [ clicked, setClicked ] = useState(false);
 
     useEffect(() => {
         
@@ -56,18 +59,36 @@ function ManageCardPage() {
 		<div>
             <div className="navBarContainer">
                 <div className="navBar">
-                <button>Load Deck of Cards</button>
-                <button>Create New Deck</button>
+                <button onClick={() => navigate("/manage-deck")}>Back</button>
                 </div>
             </div>
 
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="Question" defaultValue={cardData.Question} onChange={handleChange}/>
-                <input type="text" name="Answer" defaultValue={cardData.Answer} onChange={handleChange}/>
-                <input type="text" name="Hint" defaultValue={cardData.Hint} onChange={handleChange}/>
+            <div className="createCardFormContainer">
+                <div className="formDiv">
+                    <form className="createCardForm" onSubmit={handleSubmit}>
+                        <label htmlFor="question">Question</label>
+                        <input className="inputText" id="question" type="text" name="Question" value={cardData.Question} placeholder="question" onChange={handleChange}/>
 
-                <button type="submit">Submit</button>
-            </form>
+                        <label htmlFor="answer">Answer</label>
+                        <input className="inputText" id="answer" type="text" name="Answer" value={cardData.Answer} placeholder="answer" onChange={handleChange}/>
+                        
+                        <label htmlFor="hint">Hint</label>
+                        <input className="inputText" id="hint" type="text" name="Hint" value={cardData.Hint} placeholder="hint" onChange={handleChange}/>
+
+                        <button className="submitCardBtn" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <FlashCard 
+                        question={cardData.Question} 
+                        answer={cardData.Answer} 
+                        hint={cardData.Hint}
+                        clicked={clicked} 
+                        setClicked={setClicked}
+                        small={true} />
+                </div>
+            </div>
+            
 		</div>
 	)
 }
