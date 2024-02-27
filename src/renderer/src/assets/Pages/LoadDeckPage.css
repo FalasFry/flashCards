@@ -4,15 +4,15 @@
 }
   
 .deckDisplay{
-    background-color: gray;
-    color: beige;
+    background-color: var(--white);
+    color: var(--backgroundColor);
     margin: 2%;
     max-width: 10%;
     text-align: center;
     border-radius: 10px;
     padding: 1%;
     border-style: groove;
-    border-color: black;
+    border-color: var(--primaryColor);
 }
 
 .displayBtn {

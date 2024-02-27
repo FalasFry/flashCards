@@ -59,9 +59,9 @@ function CreateDeckPage() {
             </div>
 			
 			<h1>Create New Deck</h1>
-			<div onSubmit={submitDeck} style={{backgroundColor: "lightblue", display:"flex"}}>
-				<form>
-					<input name="name" onChange={handleChange} type="text"/>
+			<div className="createDeckDiv">
+				<form onSubmit={submitDeck}>
+					<input className="createClassInput" name="name" onChange={handleChange} type="text"/>
 					<button type="submit">Submit</button>
 				</form>
 			</div>

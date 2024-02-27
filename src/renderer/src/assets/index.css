@@ -1,3 +1,11 @@
+:root{
+  --backgroundColor: #2C0735;
+  --highlights: #4E148C;
+  --primaryColor: #6A4FB8;
+  --myWhite: #B5AEEE;
+  --white: #E5D2F9;
+}
+
 body {
   margin: 0;
   font-family:
@@ -11,8 +19,8 @@ body {
     'Cantarell',
     'Open Sans',
     sans-serif;
-  color: #86a5b1;
-  background-color: #2f3241;
+  color: var(--backgroundColor);
+  background-color: var(--myWhite);
 }
 
 Button {
@@ -20,8 +28,8 @@ Button {
   padding: 1%;
   margin: 1%;
   border-style: none;
-  background-color: #2f3241;
-  color: antiquewhite;
+  background-color: var(--highlights);
+  color: var(--white);
   min-width: 10%;
   cursor: pointer;
 }
@@ -31,7 +39,7 @@ Button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: antiquewhite;
+  background-color: var(--myWhite);
   min-height: 4vh;
 }
 

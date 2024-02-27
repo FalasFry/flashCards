@@ -29,6 +29,11 @@
   transform: rotateY(180deg);
 }
 
+.flashCard-s-c .flashCard-inner {
+  transform: rotateY(180deg);
+}
+
+
 /* Position the front and back side */
 .frontCard, .backCard {
   position: absolute;
@@ -41,13 +46,13 @@
 
 /* Style the front side (fallback if image is missing) */
 .frontCard {
-  background-color: #bbb;
-  color: black;
+  background-color: var(--white);
+  color: var(--backgroundColor);
 }
 
 /* Style the back side */
 .backCard {
-  background-color: #bbb;
-  color: black;
+  background-color: var(--white);
+  color: var(--backgroundColor);
   transform: rotateY(180deg);
 }

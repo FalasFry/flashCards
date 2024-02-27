@@ -36,14 +36,14 @@ function StudyPage() {
 			</div>
 		</div>
 
-		<div className="flashCardContainer">
+		{cards.length > 0 && <div className="flashCardContainer">
 			{cards.length > 0 && <FlashCard 
 			question={cards[cardIndex][1].Question} 
 			answer={cards[cardIndex][1].Answer} 
 			hint={cards[cardIndex][1].Hint}
 			clicked={clicked} 
 			setClicked={setClicked} />}
-		</div>
+		</div>}
 
 		{cards.length > 0 && <div className="panel">
 			<button onClick={prevCard}>Prev</button>

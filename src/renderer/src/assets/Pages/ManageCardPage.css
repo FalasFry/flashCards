@@ -8,7 +8,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: #b9b9b9;
+    background-color: var(--primaryColor);
+    color: var(--myWhite);
     padding: 20px;
     width: 50%;
 }
@@ -21,7 +22,7 @@
     width: 100%;
     padding: 12px 5px;
     margin: 8px 0;
-    border: 1px solid #ccc;
+    border: 1px solid var(--backgroundColor);
     border-radius: 4px;
     box-sizing: border-box;
 }

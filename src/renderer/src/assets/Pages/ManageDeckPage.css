@@ -1,6 +1,6 @@
 .cardContainer {
     display: flex;
-    color:aliceblue;
+    color: var(--backgroundColor);
     flex-wrap: wrap;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .cardDisplay {
-    background-color: gray;
+    background-color: var(--white);
     justify-content: center;
     align-items: center;
     display: flex;
