@@ -5,7 +5,7 @@ import '../assets/Pages/ManageDeckPage.css'
 
 function ManageDeckPage() {
 	
-    const { cards, setCards, setCardData, selectedDeck, setDeckInfo, deckObj, setDeckObj } = useOutletContext();
+    const { cards, setCards, setCardData, selectedDeck, setSelectedDeck, setDeckInfo, deckObj, setDeckObj } = useOutletContext();
     const navigate = useNavigate();
 
     function addCard(){
@@ -24,24 +24,31 @@ function ManageDeckPage() {
         fileOp.deleteDeckFile(selectedDeck);
         setDeckInfo(infoArr);
 
-		//setDeckObj({});
-		//setCards([]);
-		//setSelectedDeck('');
+		setDeckObj({});
+		setCards([]);
+		setSelectedDeck('');
 
         if(info.decks.length > 0) navigate("/load-deck");
         else navigate("/")
+    }
+
+    function navigateBack(){
+        setDeckObj({});
+		setCards([]);
+		setSelectedDeck('');
+
+        navigate("/load-deck")
     }
 
     return (
 		<div>
             <div className="navBarContainer">
                 <div className="navBar">
-                <button>Load Deck of Cards</button>
-                <button>Create New Deck</button>
+                <button onClick={navigateBack}>Back</button>
                 </div>
             </div>
             
-            <h1>Manage Deck</h1>
+            <h1>Manage Deck "{selectedDeck}"</h1>
 
             <button onClick={addCard}>Create Card</button>
 

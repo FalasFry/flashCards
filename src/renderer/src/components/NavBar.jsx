@@ -6,7 +6,17 @@ function NavBar(){
 		<ul className="nav nav-tabs">
 			<li className="nav-item">
 				<NavLink className="nav-link" to="/">
-					Hem
+					Load Cards
+				</NavLink>
+			</li>
+			<li className="nav-item">
+				<NavLink className="nav-link" to="/study-page">
+					Create Cards
+				</NavLink>
+			</li>
+			<li className="nav-item">
+				<NavLink className="nav-link" to="/study-page">
+					StudyZone
 				</NavLink>
 			</li>
 			<li className="nav-item">

@@ -7,7 +7,7 @@ import '../assets/Pages/StudyPage.css'
 function StudyPage() {
 
 	const navigate = useNavigate();
-	const { cards, setDeckInfo } = useOutletContext();
+	const { cards, selectedDeck ,setDeckInfo  } = useOutletContext();
 
 	const [ cardIndex, setCardIndex ] = useState(0);
 	const [ clicked, setClicked] = useState(false);
@@ -22,16 +22,8 @@ function StudyPage() {
 	function loadDeck(){
 		const fileOp = new FileOperations();
         const decks = fileOp.getDecksInfo();
-        if(decks.length <= 0){
-			 alert("No Decks Available");
-		} else {
-			setDeckInfo(decks);
-			navigate("/load-deck");
-		}
-	}
-
-	function createDeck(){
-		navigate("/create-deck");
+		setDeckInfo(decks);
+		navigate("/load-deck");
 	}
 
   	return (
@@ -39,8 +31,8 @@ function StudyPage() {
 
 		<div className="navBarContainer">
 			<div className="navBar">
-			<button onClick={loadDeck}>Load Deck of Cards</button>
-			<button onClick={createDeck}>Create New Deck</button>
+			<button onClick={loadDeck}>Browse Decks</button>
+			{selectedDeck !== '' ? <button onClick={() => navigate("/manage-deck")}>Manage Deck</button> : ''}
 			</div>
 		</div>
 

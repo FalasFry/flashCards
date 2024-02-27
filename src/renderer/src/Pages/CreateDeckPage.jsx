@@ -54,8 +54,7 @@ function CreateDeckPage() {
 		<div>
 			<div className="navBarContainer">
                 <div className="navBar">
-                <button>Load Deck of Cards</button>
-                <button>Create New Deck</button>
+                	<button onClick={() => navigate("/load-deck")}>Back</button>
                 </div>
             </div>
 			

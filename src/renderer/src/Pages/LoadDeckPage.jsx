@@ -6,12 +6,18 @@ function LoadDeckPage() {
 
     const { setCards, deckInfo, setDeckObj, setSelectedDeck  } = useOutletContext();
 
+    const navigate = useNavigate();
+
+    function createDeck(){
+		navigate("/create-deck");
+	}
+
     return (
 	    <div>
             <div className="navBarContainer">
                 <div className="navBar">
-                <button>Load Deck of Cards</button>
-                <button>Create New Deck</button>
+                <button onClick={createDeck}>Create New Deck</button>
+                <button onClick={() => navigate("/")}>Back</button>
                 </div>
             </div>
 
