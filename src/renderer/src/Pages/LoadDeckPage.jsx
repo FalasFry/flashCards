@@ -14,6 +14,9 @@ function LoadDeckPage() {
 
     return (
 	    <div>
+
+            <h1>Decks</h1>
+            <h4>Select deck to load</h4>
             <div className="navBarContainer">
                 <div className="navBar">
                 <button onClick={createDeck}>Create New Deck</button>
@@ -21,12 +24,10 @@ function LoadDeckPage() {
                 </div>
             </div>
 
-            <h1>Decks</h1>
-            <h4>Select deck to load</h4>
             <div className="decksGrid">
-            {deckInfo.map(name => {return(
-                <DeckDisplay key={name} name={name} setCards={setCards} setDeckObj={setDeckObj} setSelectedDeck={setSelectedDeck}/>
-            )})}
+                {deckInfo.map(name => {return(
+                    <DeckDisplay key={name} name={name} setCards={setCards} setDeckObj={setDeckObj} setSelectedDeck={setSelectedDeck}/>
+                )})}
             </div>
 
 	    </div>

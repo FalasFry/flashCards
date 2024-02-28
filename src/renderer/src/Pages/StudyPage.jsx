@@ -29,13 +29,6 @@ function StudyPage() {
   	return (
 	<div>
 
-		<div className="navBarContainer">
-			<div className="navBar">
-			<button onClick={loadDeck}>Browse Decks</button>
-			{selectedDeck !== '' ? <button onClick={() => navigate("/manage-deck")}>Manage Deck</button> : ''}
-			</div>
-		</div>
-
 		{cards.length > 0 && <div className="flashCardContainer">
 			{cards.length > 0 && <FlashCard 
 			question={cards[cardIndex][1].Question} 
@@ -50,6 +43,13 @@ function StudyPage() {
 			{cardIndex+1  +" / " +cards.length}
 			<button onClick={nextCard}>Next</button>
 		</div>}
+
+		<div className="navBarContainer">
+			<div className="navBar">
+			<button onClick={loadDeck}>Browse Decks</button>
+			{selectedDeck !== '' ? <button onClick={() => navigate("/manage-deck")}>Manage Deck</button> : ''}
+			</div>
+		</div>
 
 	</div>
 	)
