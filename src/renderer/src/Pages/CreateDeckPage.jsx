@@ -52,14 +52,10 @@ function CreateDeckPage() {
 
 	return (
 		<div>
-			<div className="navBarContainer">
-                <div className="navBar">
-                	<button onClick={() => navigate("/load-deck")}>Back</button>
-                </div>
-            </div>
-			
+						
 			<h1>Create New Deck</h1>
 			<div className="createDeckDiv">
+			<button onClick={() => navigate("/load-deck")}>Back</button>
 				<form onSubmit={submitDeck}>
 					<input className="createClassInput" name="name" onChange={handleChange} type="text"/>
 					<button type="submit">Submit</button>
