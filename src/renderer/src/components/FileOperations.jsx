@@ -5,18 +5,6 @@ class FileOperations{
 
   handleSaveData(deckData, fileName){
     const filePath = `${this.directoryPath}/${fileName}.json`;
-    const data = {
-      "0":{
-          "Question": "What is the template pattern?",
-          "Answer": "If you are building a lot of simmilar classes you can create a template for them and then have subclasses to change only the parts needed to change",
-          "Hint": "Only chage parts of superclass"
-      },
-      "1":{
-          "Question": "What is the strategy pattern?",
-          "Answer": "When you have multiple choices of algorithms, you can seperate them into subclasses and let the program choose the best one on runtime",
-          "Hint": "What algorithms works best for runtime"
-      }
-    };
     // Communicate with the main process to save data
     window.api.saveDataToFile(deckData, this.directoryPath ,filePath);
   };
