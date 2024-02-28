@@ -67,10 +67,10 @@ function ManageCardPage() {
                 <div className="formDiv">
                     <form className="createCardForm" onSubmit={handleSubmit}>
                         <label htmlFor="question">Question</label>
-                        <input className="inputText" id="question" type="text" name="Question" value={cardData.Question} placeholder="question" onChange={handleChange}/>
+                        <input className="inputText" id="question" type="text" name="Question" onSelect={() => setClicked(false)} value={cardData.Question} placeholder="question" onChange={handleChange}/>
 
                         <label htmlFor="answer">Answer</label>
-                        <input className="inputText" id="answer" type="text" name="Answer" value={cardData.Answer} placeholder="answer" onChange={handleChange}/>
+                        <input className="inputText" id="answer" type="text" name="Answer" onSelect={() => setClicked(true)} value={cardData.Answer} placeholder="answer" onChange={handleChange}/>
                         
                         <label htmlFor="hint">Hint</label>
                         <input className="inputText" id="hint" type="text" name="Hint" value={cardData.Hint} placeholder="hint" onChange={handleChange}/>
