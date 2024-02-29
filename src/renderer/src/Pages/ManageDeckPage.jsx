@@ -42,11 +42,6 @@ function ManageDeckPage() {
 
     return (
 		<div>
-            <div className="navBarContainer">
-                <div className="navBar">
-                <button onClick={navigateBack}>Back</button>
-                </div>
-            </div>
             
             <h1>Manage Deck "{selectedDeck}"</h1>
 
@@ -54,6 +49,7 @@ function ManageDeckPage() {
 
             <button onClick={deleteDeck}>Delete Deck</button>
 
+            <button onClick={navigateBack}>Back</button>
             <div className="cardContainer">
                 {cards.map((card, cardIndex) => {return(
                     <div className="cardDiv" key={cardIndex}>

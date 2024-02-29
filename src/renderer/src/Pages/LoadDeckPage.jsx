@@ -17,12 +17,9 @@ function LoadDeckPage() {
 
             <h1>Decks</h1>
             <h4>Select deck to load</h4>
-            <div className="navBarContainer">
-                <div className="navBar">
-                <button onClick={createDeck}>Create New Deck</button>
-                <button onClick={() => navigate("/")}>Back</button>
-                </div>
-            </div>
+
+            <button onClick={createDeck}>Create New Deck</button>
+            <button onClick={() => navigate("/")}>Back</button>
 
             <div className="decksGrid">
                 {deckInfo.map(name => {return(
